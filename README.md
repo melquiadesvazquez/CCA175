@@ -1,2 +1,1 @@
-# CCA175
-Practicing Cloudera Developer Exam CCA175
+Preparando la certificación CCA Spark and Hadoop Developer (CCA175)
