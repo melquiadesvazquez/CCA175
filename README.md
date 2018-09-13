@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CCA175
 Practicing Cloudera Developer Exam CCA175
 
@@ -35,3 +36,6 @@ Use Spark SQL to interact with the metastore programmatically in your applicatio
 
 * Import avro or parquet file into Impala table
 * Udemy exercises
+=======
+Preparando la certificación CCA Spark and Hadoop Developer (CCA175)
+>>>>>>> dc5b9ea1e5534bd8bfba4c6411ad0113c9842c02
