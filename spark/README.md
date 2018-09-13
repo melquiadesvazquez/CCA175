@@ -1,24 +1,29 @@
 # Introducción
 
+# Documentación disponible durante el examen Python / Scala
+
+http://spark.apache.org/docs/1.6.0/api/python/index.html
+
+http://spark.apache.org/docs/1.6.0/api/scala/index.html#org.apache.spark.package
 
 # Comandos
 
 Para pasarle parámetros a una aplicación en Python / Scala
 
 ```
-spark-submit CountJPGs.py /loudacre/weblogs/*
+spark-submit CountJPGs.py /myDB/weblogs/*
 
-spark-submit --class stubs.CountJPGs target/countjpgs-1.0.jar /loudacre/weblogs/*
+spark-submit --class stubs.CountJPGs target/countjpgs-1.0.jar /myDB/weblogs/*
 ```
 
 Si quieres hacerlo en el cluster en Python / Scala
 
 ```
-spark-submit --master yarn-client CountJPGs.py /loudacre/weblogs/*
+spark-submit --master yarn-client CountJPGs.py /myDB/weblogs/*
 
 spark-submit --class stubs.CountJPGs \
 --master yarn-client 
-target/countjpgs-1.0.jar /loudacre/weblogs/*
+target/countjpgs-1.0.jar /myDB/weblogs/*
 ```
 
 Para que no devuelva tantos errores en ambos:

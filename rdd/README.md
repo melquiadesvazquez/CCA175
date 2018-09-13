@@ -1,6 +1,13 @@
 # Introducción
 Cuando cargamos un conjunto de datos (por ejemplo proveniente de una fuente externa como los archivos de un directorio de un HDFS, o de una estructura de datos que haya sido previamente generada en nuestro programa) para ser procesado en Spark, la estructura que usaremos internamente para volcar dichos datos es un RDD
 
+
+# Documentación disponible durante el examen Python / Scala
+
+http://spark.apache.org/docs/1.6.0/api/python/index.html
+
+http://spark.apache.org/docs/1.6.0/api/scala/index.html#org.apache.spark.package
+
 # Comandos
 
 Para lanzar la Shell de Python usar
@@ -19,6 +26,63 @@ Para controlar el nivel de log en ambos
 
 ```
 sc.setLogLevel("WARN")
+```
+
+Para ejecutar un archivo Python con argumentos
+
+```
+spark-submit myFile.py myArgument1 myArgument2
+```
+
+Para ejecutar un archivo Scala con argumentos
+
+```
+mvn package
+
+spark-submit --class ClassName target/jarName.jar  myArgument1 myArgument2
+```
+
+Siempre detener el SparkContext
+
+```
+sc.stop()
+```
+
+El salto de linea en Python se hace con el punto abajo y en Scala con el punto arriba
+
+Para guardar un archivo en HDFS y generar solo un archivo:
+
+```
+result.repartition(1).saveAsTextFile("/myFolderInHDFS")
+```
+
+Para hacer un bucle en un RDD en Python y Scala
+
+```
+for item in result.collect():
+    print item
+
+result.foreach(println)
+```
+
+Para hacer un casting de tipos en Python y Scala
+
+```
+long(value)
+
+value.toLong
+```
+
+Para persistir un RDD
+
+```
+.persist()
+```
+
+Para extraer los parametros en Scala
+
+```
+.map{case (k, v) => (k._1, k._2, v)}
 ```
 
 Para leer o escriber un fichero de texto en ambos
@@ -68,8 +132,6 @@ for ip in myRDD.take(10): print ip
 myRDD.take(10).foreach(println)
 ```
 
-
-
 Imprimir la ip y el usuario en Python / Scala
 
 ```
@@ -83,3 +145,5 @@ map(record => (record(0), record(2)))
 ipsRDD.take(10).
 foreach(t => println(t._1 + "/" + t._2))
 ```
+
+
